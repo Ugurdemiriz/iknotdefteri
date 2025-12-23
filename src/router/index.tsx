@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import LandingPage from "../pages/LandingPage";
 import ContentPage from "../pages/ContentPage";
 
 export default function AppRouter() {

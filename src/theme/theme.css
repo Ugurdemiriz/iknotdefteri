@@ -1,0 +1,137 @@
+:root {
+  /* Arkaplanlar */
+  --bg-main: #fff5ef;      /* ana arka plan (ekranda gördüğün krem ton) */
+  --bg-card: #ffffff;      /* kartlar / paneller */
+  --bg-card-soft: #fff0e1; /* hover / ikincil yüzey */
+
+  /* Metinler */
+  --text-main: #20110a;    /* koyu kahve/siyah */
+  --text-soft: #8b6a55;    /* açıklamalar */
+  --text-muted: #b89a86;
+
+  /* Marka renkleri (turuncu/kırmızı arası) */
+  --brand: #ff7a1a;        /* ana buton rengi */
+  --brand-dark: #e25f00;   /* hover / aktif */
+  --brand-soft: #ffe3c4;   /* chip / badge arka planı */
+
+  /* İkincil vurgu */
+  --accent: #f5b300;
+  --accent-soft: #fff1c7;
+
+  /* Çerçeveler ve gölgeler */
+  --border-soft: #f0d2c0;
+  --shadow-soft: 0 18px 45px rgba(196, 124, 72, 0.25);
+}
+
+/* Dark mode (şimdilik kullanıyorsan) */
+.dark {
+  --bg-main: #120b07;
+  --bg-card: #19100b;
+  --bg-card-soft: #25150c;
+
+  --text-main: #fdf3ec;
+  --text-soft: #d5b6a2;
+  --text-muted: #a2816c;
+
+  --brand: #ff8a32;
+  --brand-dark: #ffb15e;
+  --brand-soft: rgba(255, 138, 50, 0.12);
+
+  --accent: #ffd56b;
+  --accent-soft: rgba(255, 213, 107, 0.15);
+
+  --border-soft: rgba(255, 184, 125, 0.4);
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+/* Body / genel */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Bizim Tailwind-benzeri utility’ler */
+.bg-bgc {
+  background-color: var(--bg-main);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.text-textc {
+  color: var(--text-main);
+}
+
+.text-textc-soft {
+  color: var(--text-soft);
+}
+
+.text-brand {
+  color: var(--brand);
+}
+
+.bg-brand {
+  background-color: var(--brand);
+}
+
+.border-brand {
+  border-color: var(--brand);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-image: linear-gradient(135deg, #ff7a1a, #ff9745);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out,
+    filter 0.15s ease-out,
+    background 0.15s ease-out;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.96);
+  background-image: linear-gradient(135deg, var(--brand-dark), #ff8f2f);
+  transform: translateY(-1px);
+  box-shadow: 0 22px 55px rgba(196, 124, 72, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 8px 22px rgba(196, 124, 72, 0.45);
+}
+
+.btn-primary--soft {
+  background-color: var(--brand-soft);
+  color: var(--brand-dark);
+  background-image: none;
+  box-shadow: none;
+}
+
+.btn-primary--soft:hover {
+  background-color: #ffd7aa;
+  box-shadow: 0 6px 16px rgba(196, 124, 72, 0.25);
+}
+.card-soft {
+  background-color: var(--bg-card);
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 45px rgba(201, 132, 82, 0.16);
+}
+
+.badge-brand-soft {
+  background-color: var(--brand-soft);
+  color: var(--brand-dark);
+  border-radius: 9999px;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}

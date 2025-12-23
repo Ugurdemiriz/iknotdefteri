@@ -1,6 +1,6 @@
 // src/pages/PricingPage.tsx
 import React from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Container from "../components/Container";
 import Card from "../components/Card";
 import Button from "../components/Button";

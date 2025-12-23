@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode (default) */
+:root {
+  /* Brand - defter kırmızısı */
+  --color-brand:        #C52F1D;
+  --color-brand-soft:   #FCE4DF;
+  --color-brand-strong: #8F1F13;
+
+  /* Ink / nötr */
+  --color-ink:        #141312;
+  --color-ink-soft:   #252423;
+  --color-border:     #E4DAD2;
+  --color-border-soft:#F0E5DD;
+
+  /* Altın accent */
+  --color-accent:      #E3B41C;
+  --color-accent-soft: #FFF4CC;
+
+  /* Yüzeyler */
+  --color-bg:          #FFF9F5;
+  --color-surface:     #FFFFFF;
+  --color-surface-soft:#FFF3EB;
+
+  /* Metin */
+  --color-text:        #201814;
+  --color-text-soft:   #7C6D63;
+
+  /* 3D soft shadow */
+  --shadow-soft: 0 18px 35px rgba(20, 19, 18, 0.18);
+
+  /* Radius */
+  --radius-lg:   24px;
+  --radius-md:   16px;
+  --radius-pill: 999px;
+}
+
+/* Dark mode - html veya body .dark class alınca */
+.dark {
+  --color-bg:          #050506;
+  --color-surface:     #141312;
+  --color-surface-soft:#1D1B19;
+
+  --color-border:      #2A2928;
+  --color-border-soft: #353432;
+
+  --color-text:        #F5F3F0;
+  --color-text-soft:   #B0ACA5;
+
+  --shadow-soft: 0 22px 45px rgba(0, 0, 0, 0.7);
+}
+
+/* Küçük base ayarı */
+html, body, #root {
+  height: 100%;
+}

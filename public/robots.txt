@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: [https://iknotdefteri.com/sitemap.xml](https://iknotdefteri.com/sitemap.xml)
+Sitemap: https://iknotdefteri.com/sitemap.xml

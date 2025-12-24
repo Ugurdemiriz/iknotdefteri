@@ -2,10 +2,13 @@
   "name": "iknotdefteri-api",
   "version": "1.0.0",
   "main": "index.js",
+  
   "scripts": {
-  "start": "node server.js"
-   },
-   "keywords": [],
+    "build": "vite build",
+    "postbuild": "cp -f public/sitemap.xml dist/sitemap.xml && cp -f public/robots.txt dist/robots.txt && cp -f public/_redirects dist/_redirects"
+  }
+}
+   {"keywords": [],
     "author": "",
     "license": "ISC",
     "description": "",

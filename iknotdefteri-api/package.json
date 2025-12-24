@@ -2,21 +2,14 @@
   "name": "iknotdefteri-api",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
-
   "scripts": {
     "build": "vite build",
     "postbuild": "cp -f public/sitemap.xml dist/sitemap.xml && cp -f public/robots.txt dist/robots.txt && cp -f public/_redirects dist/_redirects"
   },
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-
   "dependencies": {
     "better-sqlite3": "^12.5.0",
     "cors": "^2.8.5",
     "express": "^5.2.1"
   }
 }
+

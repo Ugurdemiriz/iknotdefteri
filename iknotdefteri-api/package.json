@@ -1,10 +1,13 @@
 {
-  "name": "iknotdefteri-api",
+  "name": "iknotdefteri",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "vite build",
-    "postbuild": "cp -f public/sitemap.xml dist/sitemap.xml && cp -f public/robots.txt dist/robots.txt && cp -f public/_redirects dist/_redirects"
+    "dev": "vite",
+    "build": "vite build && npm run postbuild",
+    "postbuild": "cp -f public/sitemap.xml dist/sitemap.xml && cp -f public/robots.txt dist/robots.txt && cp -f public/_redirects dist/_redirects",
+    "preview": "vite preview"
   },
   "dependencies": {
     "better-sqlite3": "^12.5.0",
@@ -12,5 +15,6 @@
     "express": "^5.2.1"
   }
 }
+
 
 

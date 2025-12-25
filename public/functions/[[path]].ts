@@ -1,4 +1,4 @@
-export async function onRequest(context: any) {
+export async function onRequest(context:any) {
   const { request, env } = context;
   const url = new URL(request.url);
   const pathname = url.pathname;

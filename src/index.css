@@ -1,3 +1,9 @@
+/* Tailwind direktifleri – bağımsız olarak tanımlanmalı */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Özel stilleriniz */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -54,6 +60,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Renk şeması değişince uygulanacak override’lar */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,10 +71,5 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
-
-@import "tailwindcss";
-@tailwind components;
-@tailwind utilities;
-
   }
 }

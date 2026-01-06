@@ -1,4 +1,14 @@
 import React, { useMemo, useState } from "react";
+type AppointmentResponse = {
+  id?: string | number;
+};
+
+function hasAppointmentId(
+  value: unknown
+): value is AppointmentResponse {
+  return typeof value === "object" && value !== null && "id" in value;
+}
+
 
 type ViewMode = "day" | "week" | "month";
 
@@ -128,47 +138,48 @@ const ContentPage: React.FC = () => {
     setSubmitSuccess(null);
   };
 
-  // ✅ RANDEVU ONAY FONKSİYONU (Artık ContentPage içinde!)
-  const handleConfirm = async () => {
-    if (!selectedSlot) return;
+// ✅ RANDEVU ONAY FONKSİYONU (ContentPage içinde)
+const handleConfirm = async () => {
+  if (!selectedSlot) return;
 
-    setIsSubmitting(true);
-    setSubmitError(null);
-    setSubmitSuccess(null);
+  setIsSubmitting(true);
+  setSubmitError(null);
+  setSubmitSuccess(null);
 
-    try {
-      const res = await fetch("/api/appointments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          date: selectedSlot.date.toISOString(), // backend’e ISO string gönderiyoruz
-          time: selectedSlot.time,
-          source: "iknotdefteri-web",
-        }),
-      });
+  try {
+    const res = await fetch("/api/appointments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date: selectedSlot.date.toISOString(),
+        time: selectedSlot.time,
+        source: "iknotdefteri-web",
+      }),
+    });
 
-      if (!res.ok) {
-        throw new Error("API error");
-      }
-
-      const data = await res.json();
-
-      setSubmitSuccess(
-        `Randevunuz oluşturuldu. ID: ${data.id || "-"} – ${formatDateTR(
-          selectedSlot.date
-        )} / ${selectedSlot.time}`
-      );
-    } catch (err) {
-      console.error(err);
-      setSubmitError(
-        "Randevu kaydedilirken bir hata oluştu. Lütfen tekrar deneyin."
-      );
-    } finally {
-      setIsSubmitting(false);
+    if (!res.ok) {
+      throw new Error("API error");
     }
-  };
+
+    // ✅ data'yı unknown al
+    const data: unknown = await res.json();
+
+    // ✅ Seçenek B: type guard ile güvenli id çıkar
+    const appointmentId = hasAppointmentId(data) ? data.id ?? "—" : "—";
+
+    setSubmitSuccess(
+      `Randevunuz oluşturuldu. ID: ${appointmentId} - ${formatDateTR(
+        selectedSlot.date
+      )} / ${selectedSlot.time}`
+    );
+  } catch (err) {
+    console.error(err);
+    setSubmitError("Randevu kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   // Günlük slot listesi
   const renderDaySlots = (date: Date) => {
